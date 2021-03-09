@@ -1,0 +1,18 @@
+.ui.statistic .value i {
+    float: left !important;
+    padding: 9px 0px 12px 11px !important;
+}
+
+.value .shiny-text-output {
+    font-size: 38px;
+}
+
+.ui.statistic .label {
+    padding-left: 54px;
+}
+
+.label_styl {
+    margin: 0px 0px 0px 3px;
+    font-size: 16px;
+    font-style: italic;
+}
