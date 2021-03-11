@@ -33,7 +33,7 @@ UImainbody <- function(id){
           tags$label(class = "label_styl", "Power:"),
           shiny.semantic::slider_input(ns("power"), min = 0, max = 1, value = 0.8, step = 0.01, class = "labeled ticked"),
       ), #/box
-      valueBox("Sample size", withSpinner(textOutput(ns("sampleSize")), color="#aba125"), icon("filter"), color = "black", width = 6)
+      valueBox("Sample size", textOutput(ns("sampleSize")), icon("filter"), color = "black", width = 6)
     ), #/fluidRow
     fluidRow(
       box(title = "Logistic Regression", color = "black", width = 15,
