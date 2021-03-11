@@ -45,7 +45,51 @@ flowerServer <- function(id) {
                 axis.text=element_blank())
       )
       
+      output$angleVal <- shiny::renderText({
+        paste("Angle: ", input$angle_in)
+      })
       
+      output$pointsVal <- shiny::renderText({
+        paste("Points: ", input$points_in)
+      })
+      
+      # Change the value of the angle
+      
+      t_num <- reactive({
+        req(input$points_in)
+        req(input$angle_in)
+        
+        (1:input$points_in)*input$angle_in
+      })
+      
+      x_val <- reactive({
+        sin(t_num())
+      })
+      
+      y_val <- reactive({
+        cos(t_num())
+      })
+      
+      dataFr <- reactive({
+        data.frame(t = t_num(),
+                   x = x_val(),
+                   y = y_val())
+      })
+      
+      output$num <- renderText({
+        paste(names(dataFr()))
+      })
+      
+      output$cutomFlower <- renderPlot({
+        ggplot(dataFr(), aes(x*t, y*t)) + 
+          geom_point(aes(size=t), alpha=0.5, shape=17, color="#fff570")+
+          theme(legend.position="none",
+                panel.background = element_rect(fill="#252424"),
+                panel.grid=element_blank(),
+                axis.ticks=element_blank(),
+                axis.title=element_blank(),
+                axis.text=element_blank())
+      })
       
       
     }
