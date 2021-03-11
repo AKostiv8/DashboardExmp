@@ -1,9 +1,9 @@
-
 UImainbody <- function(id){
   ns <- NS(id)
   
   tagList(
-
+    tabItems(
+      tabItem(tabName = "plot_tab",
               fluidRow(
                 valueBox("Start Date", textOutput(ns("min_value")), icon("calendar alternate outline"), color = "black", width = 5),
                 valueBox("End Date", textOutput(ns("max_value")), icon("calendar alternate outline"), color = "black", width = 5),
@@ -40,11 +40,12 @@ UImainbody <- function(id){
                 box(title = "Logistic Regression", color = "black", width = 15,
                     tableOutput(ns("logisticRegression"))
                 )
-              )#, #/fluidRow
-              #tabItem(tabName = "math_tab",
-                  
-              #) #/tabitem
-      
+              ), #/fluidRow
+              tabItem(tabName = "table_tab",
+                      
+              ) #/tabitem
+      )#/fluidRow
+    )#/tabItems
   )#/taglist
   
 }

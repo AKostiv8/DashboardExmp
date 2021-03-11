@@ -16,7 +16,3 @@
     font-size: 16px;
     font-style: italic;
 }
-
-div#flowe-points_in ul li:nth-child(2n + 2) {
-    color: transparent !important;
-}
