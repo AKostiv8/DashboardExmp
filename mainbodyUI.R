@@ -18,7 +18,7 @@ UImainbody <- function(id){
                     plotlyOutput(ns("CR_plot"))
                 ), #/fluidRow
                 box(title = "Conversion rates by condition", color = "black", width = 15,
-                    plotlyOutput(ns("CR_plot_condition"))
+                    withSpinner(plotlyOutput(ns("CR_plot_condition")), color="#aba125")
                 )
               ),
               fluidRow(
