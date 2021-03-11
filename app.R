@@ -36,7 +36,14 @@ ui <- semantic.dashboard::dashboardPage(
                      ), 
                      class = "sideCustom"),
     semantic.dashboard::dashboardBody(
-      UImainbody("dashbody")
+      tabItems(
+        tabItem(tabName = "plot_tab",
+                UImainbody("dashbody"),
+        ),#/tabItem
+        tabItem(tabName = "math_tab",
+                #UIflower("flowe")
+        )#/tabItem
+      )#/tabItems
     )
 )
 server <- function(input, output, session) {
