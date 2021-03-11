@@ -4,9 +4,9 @@ UImainbody <- function(id){
   tagList(
     
     fluidRow(
-      valueBox("Start Date", withSpinner(textOutput(ns("min_value")), color="#aba125"), icon("calendar alternate outline"), color = "black", width = 5),
-      valueBox("End Date", withSpinner(textOutput(ns("max_value")), color="#aba125"), icon("calendar alternate outline"), color = "black", width = 5),
-      valueBox("Aveeage Conversion Rate", withSpinner(textOutput(ns("CRvalue")), color="#aba125"), icon("calculator"), color = "black", width = 5)
+      valueBox("Start Date", textOutput(ns("min_value")), icon("calendar alternate outline"), color = "black", width = 5),
+      valueBox("End Date", textOutput(ns("max_value")), icon("calendar alternate outline"), color = "black", width = 5),
+      valueBox("Aveeage Conversion Rate", textOutput(ns("CRvalue")), icon("calculator"), color = "black", width = 5)
     ), #/fluidRow
     fluidRow(
       box(title = "Conversion rate", color = "black", width = 15,
@@ -37,7 +37,7 @@ UImainbody <- function(id){
     ), #/fluidRow
     fluidRow(
       box(title = "Logistic Regression", color = "black", width = 15,
-          withSpinner(tableOutput(ns("logisticRegression")), color="#aba125")
+          tableOutput(ns("logisticRegression"))
       )
     )#, #/fluidRow
     #tabItem(tabName = "math_tab",
