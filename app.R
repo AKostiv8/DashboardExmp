@@ -17,10 +17,10 @@ library(shinycssloaders)
 options(warn = -1)
 
 source("utilsData.R")
-source("mainbodyUI.R")
-source("mainbodyServer.R")
-source("flowerUI.R")
-source("flowerServer.R")
+source("modules/mainbodyUI.R")
+source("modules/mainbodyServer.R")
+source("modules/flowerUI.R")
+source("modules/flowerServer.R")
 
 
 ui <- semantic.dashboard::dashboardPage(
