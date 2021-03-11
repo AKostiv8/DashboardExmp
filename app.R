@@ -15,8 +15,8 @@ library(shinycssloaders)
 library(ggplot2)
 
 source("utilsData.R")
-source("mainbodyUI.R")
-source("mainbodyServer.R")
+source("modules/mainbodyUI.R")
+source("modules/mainbodyServer.R")
 
 ui <- semantic.dashboard::dashboardPage(
     semantic.dashboard::dashboardHeader(title = "Analytics",
