@@ -11,15 +11,23 @@ library(lubridate)
 library(powerMediation)
 # Load package for cleaning model results
 library(broom)
+library(ggplot2)
+library(shinycssloaders)
+
+options(warn = -1)
 
 source("utilsData.R")
-source("mainbodyUI.R")
-source("mainbodyServer.R")
+source("modules/mainbodyUI.R")
+source("modules/mainbodyServer.R")
+source("modules/flowerUI.R")
+source("modules/flowerServer.R")
+
 
 ui <- semantic.dashboard::dashboardPage(
     semantic.dashboard::dashboardHeader(title = "Analytics",
                                         tags$head(
-                                          tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
+                                          tags$link(rel = "stylesheet", type = "text/css", href = "style.css"),
+                                          tags$link(rel="icon", href="https://www.iconbunny.com/icons/media/catalog/product/7/9/79.9-financial-report-icon-iconbunny.jpg")
                                         ),
                     inverted = TRUE,
                     menu_button_label = "",
@@ -29,18 +37,23 @@ ui <- semantic.dashboard::dashboardPage(
                      closable = TRUE,
                      sidebarMenu(
                          menuItem(tabName = "plot_tab", text = "A/B testing", icon = icon("home")),
-                         menuItem(tabName = "plot_tab", text = "Sales metrics", icon = icon("home")),
-                         menuItem(tabName = "table_tab", text = "Time series", icon = icon("smile"))
+                         menuItem(tabName = "math_tab", text = "Math flowers", icon = icon("smile"))
                      ), 
                      class = "sideCustom"),
     semantic.dashboard::dashboardBody(
-      UImainbody("dashbody")
+      tabItems(
+        tabItem(tabName = "plot_tab",
+          UImainbody("dashbody"),
+        ),#/tabItem
+        tabItem(tabName = "math_tab",
+           UIflower("flowe")
+        )#/tabItem
+      )#/tabItems
     )
 )
 server <- function(input, output, session) {
   mainbodyServer("dashbody")
-    
-    
+  flowerServer("flowe")
 }
 
 shinyApp(ui, server)
