@@ -18,6 +18,7 @@ source("utilsData.R")
 source("modules/mainbodyUI.R")
 source("modules/mainbodyServer.R")
 source("modules/flowerUI.R")
+source("modules/flowerServer.R")
 
 ui <- semantic.dashboard::dashboardPage(
     semantic.dashboard::dashboardHeader(title = "Analytics",
@@ -49,7 +50,7 @@ ui <- semantic.dashboard::dashboardPage(
 )
 server <- function(input, output, session) {
   mainbodyServer("dashbody")
-    
+  flowerServer("flowe")  
     
 }
 
