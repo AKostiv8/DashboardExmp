@@ -5,9 +5,9 @@ UImainbody <- function(id){
   tagList(
 
               fluidRow(
-                valueBox("Start Date", withSpinner(textOutput(ns("min_value")), color="#aba125"), icon("calendar alternate outline"), color = "black", width = 5),
-                valueBox("End Date", withSpinner(textOutput(ns("max_value")), color="#aba125"), icon("calendar alternate outline"), color = "black", width = 5),
-                valueBox("Aveeage Conversion Rate", withSpinner(textOutput(ns("CRvalue")), color="#aba125"), icon("calculator"), color = "black", width = 5)
+                valueBox("Start Date", textOutput(ns("min_value")), icon("calendar alternate outline"), color = "black", width = 5),
+                valueBox("End Date", textOutput(ns("max_value")), icon("calendar alternate outline"), color = "black", width = 5),
+                valueBox("Aveeage Conversion Rate", textOutput(ns("CRvalue")), icon("calculator"), color = "black", width = 5)
               ), #/fluidRow
               fluidRow(
                 box(title = "Conversion rate", color = "black", width = 15,
@@ -15,10 +15,10 @@ UImainbody <- function(id){
                                                 choices = c("Week day", "Week", "Month"),
                                                 label = "Group by:", 
                                                 selected = "Week day"),
-                    withSpinner(plotlyOutput(ns("CR_plot")), color="#aba125")
+                    plotlyOutput(ns("CR_plot"))
                 ), #/fluidRow
                 box(title = "Conversion rates by condition", color = "black", width = 15,
-                    withSpinner(plotlyOutput(ns("CR_plot_condition")), color="#aba125")
+                    plotlyOutput(ns("CR_plot_condition"))
                 )
               ),
               fluidRow(
@@ -34,11 +34,11 @@ UImainbody <- function(id){
                     tags$label(class = "label_styl", "Power:"),
                     shiny.semantic::slider_input(ns("power"), min = 0, max = 1, value = 0.8, step = 0.01, class = "labeled ticked"),
                 ), #/box
-                valueBox("Sample size", withSpinner(textOutput(ns("sampleSize")), color="#aba125"), icon("filter"), color = "black", width = 6)
+                valueBox("Sample size", textOutput(ns("sampleSize")), icon("filter"), color = "black", width = 6)
               ), #/fluidRow
               fluidRow(
                 box(title = "Logistic Regression", color = "black", width = 15,
-                    withSpinner(tableOutput(ns("logisticRegression")), color="#aba125")
+                    tableOutput(ns("logisticRegression"))
                 )
               )#, #/fluidRow
               #tabItem(tabName = "math_tab",
