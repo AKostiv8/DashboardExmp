@@ -17,6 +17,7 @@ library(ggplot2)
 source("utilsData.R")
 source("modules/mainbodyUI.R")
 source("modules/mainbodyServer.R")
+source("modules/flowerUI.R")
 
 ui <- semantic.dashboard::dashboardPage(
     semantic.dashboard::dashboardHeader(title = "Analytics",
@@ -41,7 +42,7 @@ ui <- semantic.dashboard::dashboardPage(
                 UImainbody("dashbody"),
         ),#/tabItem
         tabItem(tabName = "math_tab",
-                #UIflower("flowe")
+                UIflower("flowe")
         )#/tabItem
       )#/tabItems
     )
