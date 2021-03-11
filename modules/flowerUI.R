@@ -7,7 +7,7 @@ UIflower <- function(id){
         #  tags$label(class = "label_styl", textOutput(ns("angleVal"))),
           #slider_input(ns("angle_in"), min = 1, max = 45, value = 2, step = 1, class = "labeled ticked"),
         #  tags$label(class = "label_styl", textOutput(ns("pointsVal"))),
-        shiny.semantic::slider_input(ns("p2Val"), min = 0, max = 1, value = 0.59, step = 0.01, class = "labeled ticked"),
+        shiny.semantic::slider_input(ns("p2Val"), min = 100, max = 10000, value = 1000, step = 300, class = "labeled ticked"),
         #   shiny.semantic::slider_input(ns("points_in"), min = 100, max = 10000, value = 1000, step = 300, class = "labeled ticked"),
       #    withSpinner(plotOutput(ns("cutomFlower")), color="#aba125")
       )
